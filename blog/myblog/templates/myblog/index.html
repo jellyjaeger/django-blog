@@ -1,0 +1,18 @@
+{% extends 'myblog/layout.html' %}
+{%block content%}
+{%for post in posts%}
+
+    <div class="card col-lg-3" style="display:inline-block;">
+        <img src="nature.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{post.name}}</h5>
+          <p class="card-text">{{post.author}}</p> 
+          <p class="card-text">{{post.content}}</p> 
+          <p class="card-text"><small class="text-muted">{{post.date_time}}</small></p>
+        </div>
+      </div>
+  {% endfor %}
+  {% endblock %}
+<p>{{post.author}}</p>
+<p>{{post.day}}</p>
+<p>{{post.month}}</p>

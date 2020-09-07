@@ -1,0 +1,10 @@
+{%extends 'myblog/layout.html' %}
+{% load crispy_forms_tags %}
+{%block content%}
+<form method="POST" >
+  {% csrf_token %}
+      {{users|crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button> 
+  </form>
+     <p class="card-text"><small class="text-muted">No account ..Create one </small><a href="{% url 'formold' %}"><button type="submit" class="btn btn-primary">Sign up</button></a></p>
+{% endblock %}
