@@ -1,0 +1,6 @@
+{%extends 'myblog/layout.html' %}
+
+{%block content%}
+You have been logged out 
+     <p class="card-text"><small class="text-muted">Need to go back.. </small><a href="{% url 'login' %}"><button type="submit" class="btn btn-primary">Sign in Again</button></a></p>
+{% endblock %}

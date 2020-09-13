@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
+from  registration import views as reg_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include('myblog.urls')),
     path('login/',auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='registration/logout.html'),name ='logout'),
-    path('registration/',include('registration.urls')),
+    path('registration/',reg_views.registration,name='register'),
+    path('profile/',reg_views.profile,name='profile')
 ]
+#for the debugging enviornment/develoment
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
